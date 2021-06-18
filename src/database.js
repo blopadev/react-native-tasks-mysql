@@ -5,9 +5,9 @@ const connect = async () => {
   //  return await mysql.createConnection(config)
   const conn = await mysql.createConnection(config)
 
-  const result = await conn.query('SELECT * from tasks');
+  const [rows] = await conn.query('SELECT * from tasks');
 
-  console.log(result);
+  console.log(rows);
 };
 
 connect();
