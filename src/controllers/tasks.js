@@ -12,14 +12,12 @@ export const getTask = async (req, res) => {
     req.params.id,
   ]);
   res.json(rows[0]);
-  console.log(rows[0])
 }
 
 export const getTasksCount = async (req, res) => {
   const connection = await connect();
   const [rows] = await connection.query('SELECT COUNT(*) FROM tasks');
   res.json(rows[0]["COUNT(*)"]);
-  console.log(rows[0]["COUNT(*)"])
 }
 
 export const saveTask = async (req, res) => {
@@ -39,7 +37,6 @@ export const deleteTask = async (req, res) => {
   const result = await connection.query('DELETE FROM tasks WHERE id = ?', [
     req.params.id,
   ]);
-  console.log(result)
   res.sendStatus(204)
 }
 
@@ -49,7 +46,6 @@ export const updateTask = async (req, res) => {
     req.body,
     req.params.id,
   ]);
-  console.log(result)
   res.sendStatus(204)
 }
 
